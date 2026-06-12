@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400&display=swap');
+
+/* ========== CSS Variables ========== */
+:root {
+    --color-bg: #FFF0F5;
+    --color-primary: #E8728A;
+    --color-secondary: #F4A7B9;
+    --color-accent: #C45C78;
+    --color-text: #3D2B35;
+    --color-text-muted: #9E7D96;
+    --color-card: #FFFFFF;
+    --color-card-border: #FFD6E0;
+    --border-radius: 16px;
+    --shadow: 0 4px 20px rgba(232, 114, 138, 0.12);
+    --shadow-hover: 0 8px 32px rgba(232, 114, 138, 0.22);
+}
+
+/* ========== Global Resets & Base Styles ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    font-family: 'Lato', sans-serif;
+    color: var(--color-text);
+    line-height: 1.7;
+    cursor: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ========== Floating Hearts Background ========== */
+@keyframes float-hearts {
+    0% {
+        opacity: 0.07;
+        transform: translateY(100vh) translateX(0);
+    }
+
+    10% {
+        opacity: 0.12;
+    }
+
+    90% {
+        opacity: 0.12;
+    }
+
+    100% {
+        opacity: 0.07;
+        transform: translateY(-100vh) translateX(0);
+    }
+}
+
+body::before,
+body::after {
+    content: "♥";
+    position: fixed;
+    font-size: 18px;
+    color: var(--color-primary);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.08;
+}
+
+body::before {
+    left: 10%;
+    font-size: 22px;
+    animation: float-hearts 28s infinite linear;
+}
+
+body::after {
+    right: 15%;
+    font-size: 14px;
+    animation: float-hearts 24s infinite linear 2s;
+}
+
+/* Additional floating hearts using pseudo-elements on html */
+html::before,
+html::after {
+    content: "♥";
+    position: fixed;
+    color: var(--color-secondary);
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.09;
+}
+
+html::before {
+    left: 25%;
+    font-size: 16px;
+    animation: float-hearts 30s infinite linear 1s;
+}
+
+html::after {
+    right: 5%;
+    font-size: 12px;
+    animation: float-hearts 20s infinite linear 4s;
+}
+
+/* ========== Custom Heart Cursor ========== */
+#custom-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 99999;
+    font-size: 16px;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease, opacity 0.08s ease;
+    opacity: 1;
+}
+
+#cursor-trail {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, rgba(232, 114, 138, 0.4), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.18s ease, opacity 0.2s ease;
+    opacity: 1;
+}
+
+/* ========== Reusable Components ========== */
+
+/* Page Wrapper */
+.page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Card Component */
+.card {
+    background-color: var(--color-card);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--color-card-border);
+    padding: 28px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Button - Primary */
+.btn {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.3px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Button - Outline */
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    border-radius: 50px;
+    padding: 10px 26px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.3px;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline:active {
+    transform: translateY(0);
+}
+
+/* Back Link */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+}
+
+.back-link::before {
+    content: "←";
+}
+
+/* Section Title */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+/* Section Subtitle */
+.section-sub {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+    font-weight: 300;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding: 24px 16px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .btn,
+    .btn-outline {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-wrapper {
+        padding: 16px 12px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .btn,
+    .btn-outline {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}

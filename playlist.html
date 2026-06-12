@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Our Playlist 🎵 - Achii's World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .playlist-card {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .songs-section {
+            max-width: 900px;
+            margin: 56px auto 0;
+        }
+
+        .song-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--color-card);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-primary);
+            box-shadow: var(--shadow);
+            margin-bottom: 14px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .song-card:hover {
+            transform: translateX(4px);
+        }
+
+        .song-left {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .song-title {
+            font-family: 'Lato', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .song-artist {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 0.88rem;
+            color: var(--color-text-muted);
+            margin: 0;
+        }
+
+        .song-note {
+            font-family: 'Lato', sans-serif;
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--color-text-muted);
+            margin-top: 8px;
+        }
+
+        .song-right {
+            font-size: 1.6rem;
+        }
+
+        @media (max-width: 640px) {
+            .song-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .song-right {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <a href="index.php" class="back-link">Back to Home</a>
+
+        <h1 class="section-title">Our Playlist 🎵</h1>
+        <p class="section-sub">Songs that belong to us.</p>
+
+        <!-- SECTION 1: Spotify embed -->
+        <div class="card playlist-card">
+            <!-- Spotify embed: replace the src with your own playlist if desired -->
+            <iframe style="border-radius:12px"
+                src="https://open.spotify.com/embed/playlist/1xQoCbrO4DrYW2rOHViZfm?utm_source=generator&theme=0"
+                width="100%" height="380" frameborder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+        </div>
+
+        <!-- SECTION 2: Special Songs list -->
+        <div class="songs-section">
+            <h2 class="section-title" style="font-size:1.4rem; margin-top:56px;">Songs That Mean Something 🎶</h2>
+
+            <!-- Song cards: replace the title, artist and personal note below -->
+
+            <div class="song-card">
+                <div class="song-left">
+                    <p class="song-title">the 1</p>
+                    <p class="song-artist">Taylor Swift</p>
+                    <p class="song-note">Because of you, this song has made a place in my heart. Not only because it's
+                        your favorite, but also because it really captures us.</p>
+                </div>
+                <div class="song-right">🎵</div>
+            </div>
+
+            <div class="song-card">
+                <div class="song-left">
+                    <p class="song-title">Libu-libong Buwan</p>
+                    <p class="song-artist">Kyle Raphael</p>
+                    <p class="song-note">This is the song you first said you love listening to, and now I do too.</p>
+                </div>
+                <div class="song-right">🎵</div>
+            </div>
+
+            <div class="song-card">
+                <div class="song-left">
+                    <p class="song-title">Balisong</p>
+                    <p class="song-artist">Rico Blanco</p>
+                    <p class="song-note">Just like the song, never in my life have I been more sure. I love you.</p>
+                </div>
+                <div class="song-right">🎵</div>
+            </div>
+
+            <div class="song-card">
+                <div class="song-left">
+                    <p class="song-title">You And Me</p>
+                    <p class="song-artist">Lifehouse</p>
+                    <p class="song-note">Because it's you and me, no one else.</p>
+                </div>
+                <div class="song-right">🎵</div>
+            </div>
+
+            <div class="song-card">
+                <div class="song-left">
+                    <p class="song-title">Sanctuary</p>
+                    <p class="song-artist">Joji</p>
+                    <p class="song-note">I want to dedicate this song to you, my love. I hope you remember the meaning
+                        of this.</p>
+                </div>
+                <div class="song-right">🎵</div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
